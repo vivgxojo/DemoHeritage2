@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 namespace DemoHeritage2
 {
-    public class Jeu : _Document
+    class Film : _Document
     {
-        public decimal Cout {  get; set; }
+        public decimal Cout { get; set; }
 
-        public override bool Retirer()
+        public new bool Retirer()
         {
             if (NombreDisponibles > 0)
             {
-                Console.WriteLine($"Coût de location : {Cout:C2}");
-                return base.Retirer();
+                Console.WriteLine($"Coût de location du film : {Cout:C2}");
+                NombreDisponibles--;
+                return true;
             }
             else
                 return false;

@@ -7,16 +7,10 @@ using System.Threading.Tasks;
 namespace DemoHeritage2
 {
     /// <summary>
-    /// Interface spécifiant un document dans une bilbliothèque
-    /// et définissant qu'on doit pouvoir le retirer.
+    /// Interface qui définit des objets qui peuvent être empruntés.
     /// </summary>
-    public class IDocument
+    public interface IEmpruntable
     {
-        /// <summary>
-        /// Titre du document
-        /// </summary>
-        public string Titre { get; set; }
-
         /// <summary>
         /// Nombre d'exemplaires de ce document
         /// </summary>
@@ -27,13 +21,16 @@ namespace DemoHeritage2
         /// </summary>
         public int NombreDisponibles { get; set; }
 
-
-
         /// <summary>
         /// Méthode pour emprunter ou louer le document
         /// </summary>
         /// <returns>Vrai si le document a pu être retiré</returns>
-        public bool Retirer() {  return true; }
+        public bool Retirer();
 
+        /// <summary>
+        /// Méthode pour retourner le document préalablement emprunté
+        /// </summary>
+        /// <returns>Vrai si le document a pu être remis</returns>
+        public bool Retourner();
     }
 }
